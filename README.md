@@ -34,6 +34,7 @@ The purpose of this report to analyze of fatality rates in the U.S. using 2016Ca
 i. Numerical summaries:
 
 A. 5-number summaries
+
 District of Columbia has minimum values in most of variables such as Vehicle miles traveled (millions), Fatal crashes, Deaths, Car occupants, Pickup and SUV occupants, Large truck occupants, Motorcyclists, Single-vehicle, Multiple-vehicle, Restrained fatally injured occupants, Unrestrained fatally injured occupants, Rural.
 Also, California has maximum values in most of variables such as Population, Vehicle miles traveled (millions), Car occupants, Pedestrians, Single-vehicle, Urban.
 Firstly, we should check the data accuracy (step by step from data entry to missing values) for such patterns or abnormal min and max values far from the average. But in that case, we know that the data belongs to the government and these states look normal as demographically. California has high population(~40million) and District of Columbia has low population (~700,000) . We accept the data is true.
@@ -54,6 +55,7 @@ The highest variance is Population and the lowest is Deaths.per.100.million.vehi
 Texas has the highest and Michigan has the lowest Death value in the data.
 
 
+
 ii. Graphical summaries:
 
 A. Boxplots & B. Histograms
@@ -64,10 +66,10 @@ C. Scatterplots
 
 We can easily see CarData$Deaths.per.100.million.vehicle.miles.traveled don’t have linearity. There is linearity in some valuables for instance Car.occupants&Vehicle.miles.traveled..millions. , Car.occupants&Unrestrained.fatally.injured.occupants , Car.occupants&Restrained.fatally.injured.occupants
 
+
 D. Barplots
 
 Barplots are in the script file
-
 
 
 (b) Determine the Best Predictive Model
@@ -75,7 +77,7 @@ Barplots are in the script file
 i. Model Building
 
 The fitted regression function: Y=b0+b1+b2+b3
-Best fitted model is : 
+Best fitted model is :  
 Deaths.per.100.000.population = (71.9254) - (10.8533) * log(Vehicle.miles.traveled..millions.) + (5.0865) * log(Multiple.vehicle) + (5.8360) * log(Unrestrained.fatally.injured.occupants)
 
 
@@ -83,100 +85,97 @@ ii. t-tests
 
 Exp1.  Analysis for rural - urban area crashes
 
-We applied t-test for rural vs urban area to test whether two variables are statistically different.These variables are independent samples. Therefore, we did F test to find out if they are pooled or separate variances. 
-H0 : σ1 = σ2
-H1 : σ1 ≠ σ2
-We reached that the p-value (0.3593) is greater than the significance level of 0.05. We fail to reject the null hypothesis that variance of the two samples are not significantly different. So, we use pooled variance to perform t-test for the difference in population means.
-H0 : μ1=μ2
-H1 : μ1≠μ2
+We applied t-test for rural vs urban area to test whether two variables are statistically different.These variables are independent samples. Therefore, we did F test to find out if they are pooled or separate variances.   
+H0 : σ1 = σ2   
+H1 : σ1 ≠ σ2   
+We reached that the p-value (0.3593) is greater than the significance level of 0.05. We fail to reject the null hypothesis that variance of the two samples are not significantly different. So, we use pooled variance to perform t-test for the difference in population means.   
+H0 : μ1=μ2  
+H1 : μ1≠μ2   
 The p-value (0.602) is greater than the significance level 0.05. So, we fail to reject the null hypothesis that the two sample’s means are different. Urban area crashes and Rural area crashes are not statistically different.
 
 
 Exp2.  Analysis for Single.vehicle - Multiple.vehicle crashes
 
 We applied t-test for single.vehicle vs multiple.vehicle to test whether two variables are statistically different.
-The p-value (0.3727) is greater than the significance level 0.05. We fail to reject the null hypothesis that variance of the two sample are not significantly different. So, we use pooled variance to perform t-test for the difference in population means.
-H0 : μ1=μ2
-H1 : μ1≠μ2
-
+The p-value (0.3727) is greater than the significance level 0.05. We fail to reject the null hypothesis that variance of the two sample are not significantly different. So, we use pooled variance to perform t-test for the difference in population means.  
+H0 : μ1=μ2   
+H1 : μ1≠μ2   
 The p-value (0.3524) is greater than the significance level 0.05. So, we fail to reject the null hypothesis that the two sample’s means are not significantly different. Single vehicle and Multiple vehicle crash rates are not statistically different.
 
 
-Exp3.  We compare the difference of Occupants by using ONE-WAY ANOVA
+Exp3.  We compare the difference of Occupants by using ONE-WAY ANOVA   
 
-H₀: μ₁ = μ₂ = … = μκ
-H₁: At least one μ is different
-A one-way ANOVA was performed to compare the seven groups of Occupants. The p-value (2.2e-16) is smaller than the significance level 0.05. We reject the null hypothesis and conclude at least one group is different from the rest of the group mean. Post hoc Tukey test revealed that there were eleven significant differences between groups in 0.05 significant level:
-Large.truck.occupants-Car.occupants
-Motorcyclists-Car.occupants
-Pedestrians-Car.occupants
-Bicyclists-Car.occupants
-Unknown.mode.of.transport-Car.occupants
-Large.truck.occupants-Pickup.and.SUV.occupants
-Motorcyclists-Pickup.and.SUV.occupants
-Bicyclists-Pickup.and.SUV.occupants
-Unknown.mode.of.transport-Pickup.and.SUV.occupants
-Pedestrians-Large.truck.occupants
-Bicyclists-Pedestrians
+H₀: μ₁ = μ₂ = … = μκ   
+H₁: At least one μ is different   
+A one-way ANOVA was performed to compare the seven groups of Occupants. The p-value (2.2e-16) is smaller than the significance level 0.05. We reject the null hypothesis and conclude at least one group is different from the rest of the group mean. Post hoc Tukey test revealed that there were eleven significant differences between groups in 0.05 significant level:   
+Large.truck.occupants-Car.occupants   
+Motorcyclists-Car.occupants   
+Pedestrians-Car.occupants   
+Bicyclists-Car.occupants   
+Unknown.mode.of.transport-Car.occupants   
+Large.truck.occupants-Pickup.and.SUV.occupants   
+Motorcyclists-Pickup.and.SUV.occupants   
+Bicyclists-Pickup.and.SUV.occupants   
+Unknown.mode.of.transport-Pickup.and.SUV.occupants   
+Pedestrians-Large.truck.occupants   
+Bicyclists-Pedestrians   
 
 
 Exp4.  We compare the difference in Seatbelt by using ONE-WAY ANOVA
-
-H₀: μ₁ = μ₂ = … = μκ
-H₁: At least one μ is different
+  
+H₀: μ₁ = μ₂ = … = μκ      
+H₁: At least one μ is different   
 A one-way ANOVA was performed to compare the three groups of Seatbelt. (p-value (1.376e-06) < 0.05). We reject the null hypothesis and conclude at least one group is different from the rest of the group mean.
 Post hoc Tukey test revealed that there were two significant differences between groups in 0.05 significant level. Unknown restraint status of fatally injured occupants is significantly different than other two group of values.
 
 
-(c) Preform analysis of the best regression model
+(c) Preform analysis of the best regression model   
 
 #Multiple Linear Regression
 
-i. Coefficients and model fit 
-
-(Intercept)                                              71.925382
+i. Coefficients and model fit    
+(Intercept)                                              71.925382   
 log(Vehicle.miles.traveled..millions.)                  -10.853285                   
 log(Multiple.vehicle)                                     5.086453                                          
-log(Unrestrained.fatally.injured.occupants)               5.835983 
+log(Unrestrained.fatally.injured.occupants)               5.835983    
 
-The fitted regression function: Y=b0+b1+b2+b3
-Best fitted model is : 
-Deaths.per.100.000.population = (71.9254) - (10.8533) * log(Vehicle.miles.traveled..millions.) + (5.0865) * log(Multiple.vehicle) + (5.8360) * log(Unrestrained.fatally.injured.occupants)
+The fitted regression function: Y=b0+b1+b2+b3   
+Best fitted model is :    
+Deaths.per.100.000.population = (71.9254) - (10.8533) * log(Vehicle.miles.traveled..millions.) + (5.0865) * log(Multiple.vehicle) + (5.8360) * log(Unrestrained.fatally.injured.occupants)   
 P-value (5.753e-16) of final regression model is lower than the α value (0.05). So, our model is statistically reliable.
-AIC of the final model is 219.461. Since the R-square value is 0.7911, nearly 79% of the variation in the dependent variable is explained by the model.
-For one unit increase in Vehicle miles per one million, we get a (10.85/100) ~ 0.1 decrease in Death rate in 100,000 population. It means that when Vehicle miles increase 1 million, Death number decrease 10,000. 
-For one unit increase in Multiple vehicle crashes, we get a (5.1/100) ~ 0.05 increase in Death rate in 100,000 population. It means that when Multiple vehicle crashes increase 1 unit, Death number increases 5,000. 
-For one unit increase in Unrestrained occupants for vehicle crashes, we get a (5.8/100) ~ 0.06 increase in Death rate in 100,000 population. It means that when Unrestrained occupants increase 1 unit, Death number increases 6,000.
+AIC of the final model is 219.461. Since the R-square value is 0.7911, nearly 79% of the variation in the dependent variable is explained by the model.   
+For one unit increase in Vehicle miles per one million, we get a (10.85/100) ~ 0.1 decrease in Death rate in 100,000 population. It means that when Vehicle miles increase 1 million, Death number decrease 10,000.    
+For one unit increase in Multiple vehicle crashes, we get a (5.1/100) ~ 0.05 increase in Death rate in 100,000 population. It means that when Multiple vehicle crashes increase 1 unit, Death number increases 5,000.    
+For one unit increase in Unrestrained occupants for vehicle crashes, we get a (5.8/100) ~ 0.06 increase in Death rate in 100,000 population. It means that when Unrestrained occupants increase 1 unit, Death number increases 6,000.   
 
 
 
 
-ii. Model Diagnostics
+ii. Model Diagnostics   
 
--Residuals vs Fitted graphic spreads randomly. It shows that the residuals are independent.
--Normal QQ graphic spreads in a straight line. It shows that the residuals are normally distributed.
--Standardized residuals graphic spreads randomly and have no visible pattern. It shows that the residuals are randomly scattered and have equal variance (homoscedasticity).
--Residuals vs Leverage graphic has no variable above the 1 line (Cook Distance). There are no outliers anymore in the model.
+-Residuals vs Fitted graphic spreads randomly. It shows that the residuals are independent.   
+-Normal QQ graphic spreads in a straight line. It shows that the residuals are normally distributed.   
+-Standardized residuals graphic spreads randomly and have no visible pattern. It shows that the residuals are randomly scattered and have equal variance (homoscedasticity).   
+-Residuals vs Leverage graphic has no variable above the 1 line (Cook Distance). There are no outliers anymore in the model.   
+iii. Outliers / Influential values   
+   
+There was an outlier (9 and 44th value) in the first model and removed in the iterations for more stable regression model. There is no outlier in the final.model anymore .   
 
-iii. Outliers / Influential values
-
-There was an outlier (9 and 44th value) in the first model and removed in the iterations for more stable regression model. There is no outlier in the final.model anymore .
-
-iv. Possible Remedial Measures Section
-There are non-normal distributed valuables in the first model and we applied variable transformation (log function) in the iterations.
-
+iv. Possible Remedial Measures Section   
+There are non-normal distributed valuables in the first model and we applied variable transformation (log function) in the iterations.   
 
 
-3: Interpret the results
 
+3: Interpret the results   
+   
 We analyzed the data from the U.S. Department of Transportation’s Fatality Analysis Reporting System (FARS) in 2016. This data has 21 conditions of traffic crashes and 51 rows which contains the data of the 50 states and district of Columbia.
 We conclude that Texas and Columbia have different distribution than other states. We removed them while implementing our regression model. It needs to be investigated more when we have an insurance application from these states.
-We saw that for one unit increase in Multiple vehicle crashes, we get a 5,000 increase in the number of people expected to die. For one unit increase in Unrestrained occupants for vehicle crashes, we get a 6,000 increase in the number of people expected to die. Additionally, Single vehicle and Multiple vehicle crash rates are not statistically different.
+We saw that for one unit increase in Multiple vehicle crashes, we get a 5,000 increase in the number of people expected to die. For one unit increase in Unrestrained occupants for vehicle crashes, we get a 6,000 increase in the number of people expected to die. Additionally, Single vehicle and Multiple vehicle crash rates are not statistically different.   
 
 
 
-4: Conclusion and recommendation
-
+4: Conclusion and recommendation   
+   
 Multiple vehicle crashes and not to wear a seatbelt increase the death rates dramatically. Obeying the traffic rules when driving is highly important from this perspective. Hence, we can install tracking device our clients’ vehicles to ensure they are obeying the rules all the time. We can adjust insurance payments by scoring their driving skills and habits. We can also make public service advertisements or be a sponsor for a health organization for drawing attention to these points. 
 According to our report we identified that death rates decrease as the travel miles increased. This could be because of drivers improved their experience during their long travels assuming that vehicle ownership not changes. If this is the case, we can decrease their insurance payments, but we haven’t got enough data to identify root cause of this finding. 
-Normally, we expect to have less crashes in rural area because of the less population and vehicle ownership. But we conclude it is not statistically different than urban area when we analyze it. The reason may be tough road conditions, lack of lightening, climatic conditions vs. There is no need to make any adjustment in the insurance for these subsets.
+Normally, we expect to have less crashes in rural area because of the less population and vehicle ownership. But we conclude it is not statistically different than urban area when we analyze it. The reason may be tough road conditions, lack of lightening, climatic conditions vs. There is no need to make any adjustment in the insurance for these subsets.   
