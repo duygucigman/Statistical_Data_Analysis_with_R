@@ -22,11 +22,11 @@ The purpose of this report to analyze of fatality rates in the U.S. using 2016Ca
 18. Restrained fatally injured occupants : Total number of not wearing seat-belt in the crashes
 19. Unknown restraint status of fatally injured occupants : Total number of unknown seat-belt situation in the crashes
 20. Urban : Total number of crashes in urban area
-21. Rural : Total number of crashes in rural area
- 
- 
- 
- 
+21. Rural : Total number of crashes in rural area      
+             
+             
+             
+          
 2: Data Analysis
 
 (a) Descriptive data analysis
@@ -156,24 +156,26 @@ ii. Model Diagnostics
 -Residuals vs Fitted graphic spreads randomly. It shows that the residuals are independent.   
 -Normal QQ graphic spreads in a straight line. It shows that the residuals are normally distributed.   
 -Standardized residuals graphic spreads randomly and have no visible pattern. It shows that the residuals are randomly scattered and have equal variance (homoscedasticity).   
--Residuals vs Leverage graphic has no variable above the 1 line (Cook Distance). There are no outliers anymore in the model.   
+-Residuals vs Leverage graphic has no variable above the 1 line (Cook Distance). There are no outliers anymore in the model.               
+            
+            
 iii. Outliers / Influential values   
    
 There was an outlier (9 and 44th value) in the first model and removed in the iterations for more stable regression model. There is no outlier in the final.model anymore .   
 
 iv. Possible Remedial Measures Section   
-There are non-normal distributed valuables in the first model and we applied variable transformation (log function) in the iterations.   
-
-
-
+There are non-normal distributed valuables in the first model and we applied variable transformation (log function) in the iterations.            
+         
+         
+         
 3: Interpret the results   
    
 We analyzed the data from the U.S. Department of Transportation’s Fatality Analysis Reporting System (FARS) in 2016. This data has 21 conditions of traffic crashes and 51 rows which contains the data of the 50 states and district of Columbia.
 We conclude that Texas and Columbia have different distribution than other states. We removed them while implementing our regression model. It needs to be investigated more when we have an insurance application from these states.
-We saw that for one unit increase in Multiple vehicle crashes, we get a 5,000 increase in the number of people expected to die. For one unit increase in Unrestrained occupants for vehicle crashes, we get a 6,000 increase in the number of people expected to die. Additionally, Single vehicle and Multiple vehicle crash rates are not statistically different.   
-
-
-
+We saw that for one unit increase in Multiple vehicle crashes, we get a 5,000 increase in the number of people expected to die. For one unit increase in Unrestrained occupants for vehicle crashes, we get a 6,000 increase in the number of people expected to die. Additionally, Single vehicle and Multiple vehicle crash rates are not statistically different.      
+         
+         
+         
 4: Conclusion and recommendation   
    
 Multiple vehicle crashes and not to wear a seatbelt increase the death rates dramatically. Obeying the traffic rules when driving is highly important from this perspective. Hence, we can install tracking device our clients’ vehicles to ensure they are obeying the rules all the time. We can adjust insurance payments by scoring their driving skills and habits. We can also make public service advertisements or be a sponsor for a health organization for drawing attention to these points. 
