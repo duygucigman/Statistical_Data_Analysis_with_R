@@ -2,27 +2,27 @@
 
 The purpose of this report to analyze of fatality rates in the U.S. using 2016CarCrashes.csv . This document contains data from the U.S. Department of Transportation’s Fatality Analysis Reporting System (FARS) in 2016. It has 21 conditions of traffic crashes and 51 rows which contains the data of the 50 states and district of Columbia.
 
-1.State : State name of the U.S.
-2.Population : Population of the State
-3.Vehicle miles traveled (millions) : Total traveled miles of the State vehicles’(millions)
-4.Fatal crashes : Total fatal crash number with vehicles
-5.Deaths : Total death number with vehicle
-6.Deaths per 100,000 population : Average crash death number of the state in every 100,000 population
-7.Deaths per 100 million vehicle miles traveled : Avg. crash death number of the state in every 100 million traveled miles
-8.Car occupants : Total number of car occupants in the crashes
-9.Pickup and SUV occupants : Total number of Pickup and SUV occupants in the crashes
-10.Large truck occupants : Total number of Large truck occupants in the crashes
-11.Motorcyclists : Total number of Motorcyclists in the crashes
-12.Pedestrians : Total number of Pedestrians in the crashes
-13.Bicyclists : Total number of Bicyclists in the crashes
-14.Unknown mode of transport : Total number of Unknown mode of transport in the crashes
-15.Single-vehicle : Total number of Single-vehicle existence in the crashes
-16.Multiple-vehicle : Total number of Multiple-vehicle existence in the crashes
-17.Unrestrained fatally injured occupants : Total number of wearing seat-belt in the crashes
-18.Restrained fatally injured occupants : Total number of not wearing seat-belt in the crashes
-19.Unknown restraint status of fatally injured occupants : Total number of unknown seat-belt situation in the crashes
-20.Urban : Total number of crashes in urban area
-21.Rural : Total number of crashes in rural area
+1. State : State name of the U.S.
+2. Population : Population of the State
+3. Vehicle miles traveled (millions) : Total traveled miles of the State vehicles’(millions)
+4. Fatal crashes : Total fatal crash number with vehicles
+5. Deaths : Total death number with vehicle
+6. Deaths per 100,000 population : Average crash death number of the state in every 100,000 population
+7. Deaths per 100 million vehicle miles traveled : Avg. crash death number of the state in every 100 million traveled miles
+8. Car occupants : Total number of car occupants in the crashes
+9. Pickup and SUV occupants : Total number of Pickup and SUV occupants in the crashes
+10. Large truck occupants : Total number of Large truck occupants in the crashes
+11. Motorcyclists : Total number of Motorcyclists in the crashes
+12. Pedestrians : Total number of Pedestrians in the crashes
+13. Bicyclists : Total number of Bicyclists in the crashes
+14. Unknown mode of transport : Total number of Unknown mode of transport in the crashes
+15. Single-vehicle : Total number of Single-vehicle existence in the crashes
+16. Multiple-vehicle : Total number of Multiple-vehicle existence in the crashes
+17. Unrestrained fatally injured occupants : Total number of wearing seat-belt in the crashes
+18. Restrained fatally injured occupants : Total number of not wearing seat-belt in the crashes
+19. Unknown restraint status of fatally injured occupants : Total number of unknown seat-belt situation in the crashes
+20. Urban : Total number of crashes in urban area
+21. Rural : Total number of crashes in rural area
  
 2: Data Analysis
 (a) Descriptive data analysis
