@@ -1,0 +1,510 @@
+
+
+#-------------------------------ASSIGNMENT OF DUYGU CIGMAN--------------------------------------
+
+
+#-----------------------------------------------#-----------------------------------------------
+
+# 1: Introduction to Data Set
+
+CarData <- read.csv(file.choose(),header = TRUE ,sep = ',')
+View(CarData)
+head(CarData)
+
+mode(CarData) 
+
+str(CarData)
+
+
+#-----------------------------------------------#-----------------------------------------------
+# 2: Data Analysis
+#-----------------------------------------------
+
+## (a)Descriptive data analysis
+
+### i.Numerical summaries:
+
+#### A.5-number summaries
+
+summary(CarData)
+
+#### B.Correlations
+
+round(cor(CarData[-c(1)]),3)
+
+
+#### C.Variance etc.
+
+var(CarData$Population)
+var(CarData$Vehicle.miles.traveled..millions.)
+var(CarData$Fatal.crashes)
+var(CarData$Deaths)
+var(CarData$Deaths.per.100.000.population)
+var(CarData$Deaths.per.100.million.vehicle.miles.traveled)
+var(CarData$Car.occupants)
+var(CarData$Pickup.and.SUV.occupants)
+var(CarData$Large.truck.occupants)
+var(CarData$Motorcyclists)
+var(CarData$Pedestrians)
+var(CarData$Bicyclists)
+var(CarData$Unknown.mode.of.transport)
+var(CarData$Single.vehicle)
+var(CarData$Multiple.vehicle)
+var(CarData$Unrestrained.fatally.injured.occupants)
+var(CarData$Restrained.fatally.injured.occupants)
+var(CarData$Unknown.restraint.status.of.fatally.injured.occupants)
+var(CarData$Urban)
+var(CarData$Rural)
+
+mean(CarData$Deaths,rm.na=TRUE)
+mean(CarData$Unrestrained.fatally.injured.occupants,rm.na=TRUE)
+
+max(CarData$Deaths)
+which.max(CarData$Deaths)
+
+CarData[44,c(1,5)]
+
+CarData[min(CarData$Deaths),c(1,5)]      
+
+sd(CarData$Population)
+
+
+#-----------------------------------------------
+
+### ii.Graphical summaries:
+
+#### A.Boxplots 
+
+#Boxplot of Population 
+boxplot(CarData$Population,ylab='Total Population of the states',main='U.S.Transportation Fatality Rates in 2016',col = 'light blue')
+text(rep(1.3,5),fivenum(CarData$Population),labels=c('min','lower hinge','median','upper hinge','max'),cex=0.75)
+
+#Boxplot of Vehicle.miles.traveled..millions.
+boxplot(CarData$Vehicle.miles.traveled..millions.,ylab='Total Vehicle.miles.traveled..millions.of the states',main='U.S.Transportation Fatality Rates in 2016',col = 'light blue')
+text(rep(1.3,5),fivenum(CarData$Vehicle.miles.traveled..millions.),labels=c('min','lower hinge','median','upper hinge','max'),cex=0.75)
+
+#Boxplot of Fatal.crashes
+boxplot(CarData$Fatal.crashes,ylab='Total Fatal.crashesof the states',main='U.S.Transportation Fatality Rates in 2016',col = 'light blue')
+text(rep(1.3,5),fivenum(CarData$Fatal.crashes),labels=c('min','lower hinge','median','upper hinge','max'),cex=0.75)
+
+#Boxplot of Deaths
+boxplot(CarData$Deaths,ylab='Total Deathsof the states',main='U.S.Transportation Fatality Rates in 2016',col = 'light blue')
+text(rep(1.3,5),fivenum(CarData$Deaths),labels=c('min','lower hinge','median','upper hinge','max'),cex=0.75)
+
+#Boxplot of Deaths.per.100.000.population
+boxplot(CarData$Deaths.per.100.000.population,ylab='Total Deaths.per.100.000.populationof the states',main='U.S.Transportation Fatality Rates in 2016',col = 'light blue')
+text(rep(1.3,5),fivenum(CarData$Deaths.per.100.000.population),labels=c('min','lower hinge','median','upper hinge','max'),cex=0.75)
+
+#Boxplot of Deaths.per.100.million.vehicle.miles.traveled
+boxplot(CarData$Deaths.per.100.million.vehicle.miles.traveled,ylab='Total Deaths.per.100.million.vehicle.miles.traveledof the states',main='U.S.Transportation Fatality Rates in 2016',col = 'light blue')
+text(rep(1.3,5),fivenum(CarData$Deaths.per.100.million.vehicle.miles.traveled),labels=c('min','lower hinge','median','upper hinge','max'),cex=0.75)
+
+#Boxplot of Car.occupants
+boxplot(CarData$Car.occupants,ylab='Total occupantsof the states',main='U.S.Transportation Fatality Rates in 2016',col = 'light blue') 
+text(rep(1.3,5),fivenum(CarData$occupants),labels=c('min','lower hinge','median','upper hinge','max'),cex=0.75)
+
+#Boxplot of Pickup.and.SUV.occupants
+boxplot(CarData$Pickup.and.SUV.occupants,ylab='Total Pickup.and.SUV.occupantsof the states',main='U.S.Transportation Fatality Rates in 2016',col = 'light blue')
+text(rep(1.3,5),fivenum(CarData$Pickup.and.SUV.occupants),labels=c('min','lower hinge','median','upper hinge','max'),cex=0.75)
+
+#Boxplot of Large.truck.occupants
+boxplot(CarData$Large.truck.occupants,ylab='Total Large.truck.occupantsof the states',main='U.S.Transportation Fatality Rates in 2016',col = 'light blue')
+text(rep(1.3,5),fivenum(CarData$Large.truck.occupants),labels=c('min','lower hinge','median','upper hinge','max'),cex=0.75)
+
+#Boxplot of Motorcyclists
+boxplot(CarData$Motorcyclists,ylab='Total Motorcyclistsof the states',main='U.S.Transportation Fatality Rates in 2016',col = 'light blue')
+text(rep(1.3,5),fivenum(CarData$Motorcyclists),labels=c('min','lower hinge','median','upper hinge','max'),cex=0.75)
+
+#Boxplot of Pedestrians
+boxplot(CarData$Pedestrians,ylab='Total Pedestriansof the states',main='U.S.Transportation Fatality Rates in 2016',col = 'light blue')
+text(rep(1.3,5),fivenum(CarData$Pedestrians),labels=c('min','lower hinge','median','upper hinge','max'),cex=0.75)
+#Boxplot of Bicyclists
+boxplot(CarData$Bicyclists,ylab='Total Bicyclistsof the states',main='U.S.Transportation Fatality Rates in 2016',col = 'light blue')
+text(rep(1.3,5),fivenum(CarData$Bicyclists),labels=c('min','lower hinge','median','upper hinge','max'),cex=0.75)
+
+#Boxplot of Unknown.mode.of.transport
+boxplot(CarData$Unknown.mode.of.transport,ylab='Total Unknown.mode.of.transportof the states',main='U.S.Transportation Fatality Rates in 2016',col = 'light blue')
+text(rep(1.3,5),fivenum(CarData$Unknown.mode.of.transport),labels=c('min','lower hinge','median','upper hinge','max'),cex=0.75)
+
+#Boxplot of Single.vehicle
+boxplot(CarData$Single.vehicle,ylab='Total Single.vehicleof the states',main='U.S.Transportation Fatality Rates in 2016',col = 'light blue')
+text(rep(1.3,5),fivenum(CarData$Single.vehicle),labels=c('min','lower hinge','median','upper hinge','max'),cex=0.75)
+
+#Boxplot of Multiple.vehicle
+boxplot(CarData$Multiple.vehicle,ylab='Total Multiple.vehicleof the states',main='U.S.Transportation Fatality Rates in 2016',col = 'light blue')
+text(rep(1.3,5),fivenum(CarData$Multiple.vehicle),labels=c('min','lower hinge','median','upper hinge','max'),cex=0.75)
+
+#Boxplot of Unrestrained.fatally.injured.occupants
+boxplot(CarData$Unrestrained.fatally.injured.occupants,ylab='Total Unrestrained.fatally.injured.occupantsof the states',main='U.S.Transportation Fatality Rates in 2016',col = 'light blue')
+text(rep(1.3,5),fivenum(CarData$Unrestrained.fatally.injured.occupants),labels=c('min','lower hinge','median','upper hinge','max'),cex=0.75)
+
+#Boxplot of Restrained.fatally.injured.occupants
+boxplot(CarData$Restrained.fatally.injured.occupants,ylab='Total Restrained.fatally.injured.occupantsof the states',main='U.S.Transportation Fatality Rates in 2016',col = 'light blue')
+text(rep(1.3,5),fivenum(CarData$Restrained.fatally.injured.occupants),labels=c('min','lower hinge','median','upper hinge','max'),cex=0.75)
+
+#Boxplot of Unknown.restraint.status.of.fatally.injured.occupants
+boxplot(CarData$Unknown.restraint.status.of.fatally.injured.occupants,ylab='Total Unknown.restraint.status.of.fatally.injured.occupantsof the states',main='U.S.Transportation Fatality Rates in 2016',col = 'light blue')
+text(rep(1.3,5),fivenum(CarData$Unknown.restraint.status.of.fatally.injured.occupants),labels=c('min','lower hinge','median','upper hinge','max'),cex=0.75)
+
+#Boxplot of Urban
+boxplot(CarData$Urban,ylab='Total Urbanof the states',main='U.S.Transportation Fatality Rates in 2016',col = 'light blue')
+text(rep(1.3,5),fivenum(CarData$Urban),labels=c('min','lower hinge','median','upper hinge','max'),cex=0.75)
+
+#Boxplot of Rural
+boxplot(CarData$Rural,ylab='Total Ruralof the states',main='U.S.Transportation Fatality Rates in 2016',col = 'light blue')
+text(rep(1.3,5),fivenum(CarData$Rural),labels=c('min','lower hinge','median','upper hinge','max'),cex=0.75)
+
+
+
+
+
+
+#### B. Histograms
+
+hist(CarData$Population)
+hist(CarData$Vehicle.miles.traveled..millions.)
+hist(CarData$Fatal.crashes)
+hist(CarData$Deaths)
+hist(CarData$Deaths.per.100.000.population)
+hist(CarData$Deaths.per.100.million.vehicle.miles.traveled)
+hist(CarData$Car.occupants)
+hist(CarData$Pickup.and.SUV.occupants)
+hist(CarData$Large.truck.occupants)
+hist(CarData$Motorcyclists)
+hist(CarData$Pedestrians)
+hist(CarData$Bicyclists)
+hist(CarData$Unknown.mode.of.transport)
+hist(CarData$Single.vehicle)
+hist(CarData$Multiple.vehicle)
+hist(CarData$Unrestrained.fatally.injured.occupants)
+hist(CarData$Restrained.fatally.injured.occupants)
+hist(CarData$Unknown.restraint.status.of.fatally.injured.occupants)
+hist(CarData$Urban)
+hist(CarData$Rural)
+
+
+# The shapes of the histograms were right skewed. Hence,we applied log function to get normal distribution.
+hist(log(CarData$Population))
+hist(log(CarData$Vehicle.miles.traveled..millions.))
+hist(log(CarData$Fatal.crashes))
+hist(log(CarData$Deaths))
+hist(log(CarData$Deaths.per.100.000.population))
+hist(log(CarData$Deaths.per.100.million.vehicle.miles.traveled))
+hist(log(CarData$Car.occupants))
+hist(log(CarData$Pickup.and.SUV.occupants))
+hist(log(CarData$Large.truck.occupants))
+hist(log(CarData$Motorcyclists))
+hist(log(CarData$Pedestrians))
+hist(log(CarData$Bicyclists))
+hist(log(CarData$Unknown.mode.of.transport))
+hist(log(CarData$Single.vehicle))
+hist(log(CarData$Multiple.vehicle))
+hist(log(CarData$Unrestrained.fatally.injured.occupants))
+hist(log(CarData$Restrained.fatally.injured.occupants))
+hist(log(CarData$Unknown.restraint.status.of.fatally.injured.occupants))
+hist(log(CarData$Urban))
+hist(log(CarData$Rural))
+
+
+
+#### C. Scatterplots
+
+# Some examples with Scatterplots
+
+plot(CarData$Population,CarData$Deaths.per.100.000.population,xlab = 'Population',ylab = 'Deaths',main = 'Population vs Deaths.per.100.000.population in Crashes',pch=16,col='dark blue')
+
+plot(CarData$Car.occupants,CarData$Deaths.per.100.000.population,xlab = 'Car Occupants',ylab = 'Deaths',main = 'Car Occupants vs Deaths.per.100.000.population in Crashes',pch=15,col='dark green')
+
+plot(CarData$Unrestrained.fatally.injured.occupants,CarData$Deaths.per.100.000.population,xlab = 'Unrestrained fatally injured occupants',ylab = 'Deaths',main = 'Unrestrained fatally injured occupants vs Deaths.per.100.000.population in Crashes',pch=17,col='light green')
+
+# ScatterPlot for seeing linearity for all variables
+pairs(CarData[-c(1,2,4,5)])
+
+
+#### D. Barplots
+
+# Barplots for Deaths.per.100.000.population
+tablo <- table(CarData$Deaths.per.100.000.population)
+barplot(tablo,main = 'Barplot of Average Death in 100.000 Population',xlab = 'Frequency',ylab = 'Population',xlim = c(0,8),horiz=TRUE,col = rainbow(length(unique(tablo))))
+
+# Barplots for Deaths.per.100.million.vehicle.miles.traveled
+tablo2 <- table(CarData$Deaths.per.100.million.vehicle.miles.traveled)
+barplot(tablo2,main = 'Barplot of Average Death in 100.million Milles Travelled',xlab = 'Frequency',ylab = 'Miles',names.arg=c(1,2),col=c('red','green'),xlim = c(0,10),ylim=c(0,50))
+
+
+
+
+
+
+#-----------------------------------------------
+
+## (b) Determine the Best Predictive Model
+
+
+### i.Model Building :
+
+# The fitted regression function : Y=b0+b1+b2+b3
+# Best fitted model is : #Deaths.per.100.000.population = (71.9254) - (10.8533) * log(Vehicle.miles.traveled..millions.) + (5.0865) * #log(Multiple.vehicle) + (5.8360) * log(Unrestrained.fatally.injured.occupants)
+
+
+
+
+### ii.t-tests :
+
+# Exp1 . Analysis for rural - urban area crashes
+# t-test for rural vs urban area to test whether two variables are statistically different.These variables are independent samples. Therefore, we do F test to find out if they are pooled or separate variances.(H0 : σ1=σ2 , H1 : σ1 ≠ σ2)
+
+
+my_data <- CarData[,c(20,21)]
+head(my_data)
+qqplot(my_data$Urban,my_data$Rural,main = 'QQ Plot for Urban vs Rural',xlab = 'Urban', ylab = 'Rural')
+var.test(my_data$Urban,my_data$Rural)
+
+
+# The p-value (0.3593) is greater than the significance level 0.05. So we use pooled variance to perform t-test for the difference in population means.(H0 : μ1=μ2 , H1 : μ1≠μ2)
+
+t.test(my_data$Urban,my_data$Rural,var.equal = TRUE)
+
+# The p-value (0.602) is greater than the significance level 0.05 .So fail to reject the null hypothesis that the two sample means are different. Urban area crashes and Rural area crashes are not statistically different.
+
+
+
+
+
+# Exp2 . Analysis for Single.vehicle - Multiple.vehicle crashes
+
+#t-test for single.vehicle vs multiple.vehicle to test whether two variables are statistically different.(H0 : σ1=σ2 , H1 : σ1 ≠ σ2)
+my_data2 <- CarData[,c(15,16)]
+head(my_data2)
+
+qqplot(my_data2$Single.vehicle,my_data2$Multiple.vehicle,main='QQ Plot for Single Vehicle vs Multiple Vehicle',xlab = 'Single Vehicle Crashes', ylab = 'Multiple vehicle Crashes')
+
+var.test(my_data2$Single.vehicle , my_data2$Multiple.vehicle )
+
+# The p-value (0.3727) is greater than the significance level 0.05 .We fail to reject the null hypothesis that variance of the two sample are not significantly different. So we use pooled variance to perform t-test for the difference in population means. (H0 : μ1=μ2 , H1 : μ1≠μ2)
+t.test(my_data2$Single.vehicle , my_data2$Multiple.vehicle , var.equal=TRUE)
+
+
+
+
+
+# Exp3 .  We compare the difference of Occupants by using ONE-WAY ANOVA ( H₀: μ₁ = μ₂ = … = μκ,H₁: At least one μ is different )
+
+anova_dataset <- CarData[,c(8:14)]
+View(anova_dataset)
+boxplot(anova_dataset)
+s_anova_dataset <- stack(anova_dataset)
+names(s_anova_dataset)  
+View(s_anova_dataset)
+model <- aov(values~ind,data = s_anova_dataset)
+oneway.test(values~ind,data=s_anova_dataset,var.equal = TRUE)
+
+#We found out p-value of one way ANOVA test is smaller than the significance level 0.05 . We use Tukey HSD test to see which group is different
+TukeyHSD(model)  
+
+
+
+
+# Exp4 . #We compare the differency in Sealtbelt by using ONE-WAY ANOVA( H₀: μ₁ = μ₂ = … = μκ,H₁: At least one μ is different )
+anova_dataset2 <- CarData[,c(17:19)]
+View(anova_dataset2)
+boxplot(anova_dataset2)
+s_anova_dataset2 <- stack(anova_dataset2)
+names(s_anova_dataset2) 
+View(s_anova_dataset2)
+model <- aov(values~ind,data = s_anova_dataset2)
+oneway.test(values~ind,data=s_anova_dataset2,var.equal = TRUE)
+
+#We found out p-value(1.376e-06) of one way ANOVA test is smaller than the significance level 0.05 . We use Tukey HSD test to see which group is different from the rest of the group mean.
+
+TukeyHSD(model)  
+
+
+
+
+
+
+
+
+
+#-----------------------------------------------#-----------------------------------------------
+(c) Preform analysis of the best regression model
+#-----------------------------------------------#-----------------------------------------------
+
+
+#-----------------------------------------------
+# MULTIPLE LINEAR REGRESSION
+#-----------------------------------------------
+
+# FIRST MODEL
+
+Car_Model1 <- lm(Deaths.per.100.000.population ~ Vehicle.miles.traveled..millions. + Car.occupants + Pickup.and.SUV.occupants + Large.truck.occupants+ Motorcyclists + Pedestrians + Bicyclists + Single.vehicle + Multiple.vehicle + Unrestrained.fatally.injured.occupants + Restrained.fatally.injured.occupants + Urban + Rural ,data=CarData)
+
+
+
+# FINAL MODEL
+
+# applied iteration to find out the final model
+step(Car_Model1,direction = 'backward')
+ 
+# final model
+# results: it needs more work on it
+model <- lm(Deaths.per.100.000.population ~ Vehicle.miles.traveled..millions. +  Pickup.and.SUV.occupants + Bicyclists + Multiple.vehicle + Unrestrained.fatally.injured.occupants + Rural ,data = CarData)
+
+summary(model)
+
+AIC(model)
+    
+# plot of all variables
+# results :we found out that all of them right skewed
+    plot(CarData$Vehicle.miles.traveled..millions.,model$residuals)
+    plot(CarData$Pickup.and.SUV.occupants,model$residuals)
+    plot(CarData$Bicyclists,model$residuals)
+    plot(CarData$Multiple.vehicle ,model$residuals)
+    plot(CarData$Unrestrained.fatally.injured.occupants ,model$residuals) 
+    plot(CarData$Rural ,model$residuals) 
+    
+# histogram of all variables 
+# results: we found out that all of them right skewed
+    hist(CarData$Vehicle.miles.traveled..millions.)
+    hist(CarData$Pickup.and.SUV.occupants)
+    hist(CarData$Bicyclists)
+    hist(CarData$Multiple.vehicle)
+    hist(CarData$Unrestrained.fatally.injured.occupants)
+    hist(CarData$Rural)
+
+# plot of the model
+    plot(model) 
+
+
+
+
+# VARIABLE TRANSFORMATION CHECK 
+
+# plot of residuals for all variables to reach spreading residuals in each one
+# results: Residuals are spread randomly like we desired
+    plot(log(CarData$Vehicle.miles.traveled..millions.),model$residuals)
+    plot(log(CarData$Pickup.and.SUV.occupants),model$residuals)
+    plot(log(CarData$Bicyclists),model$residuals)
+    plot(log(CarData$Multiple.vehicle) ,model$residuals)
+    plot(log(CarData$Unrestrained.fatally.injured.occupants) ,model$residuals) 
+    plot(log(CarData$Rural) ,model$residuals) 
+    
+# log hist to get normal distribution 
+# results: Unrestrained.fatally.injured.occupants and Rural not seem good after log
+    hist(log(CarData$Vehicle.miles.traveled..millions.))
+    hist(log(CarData$Pickup.and.SUV.occupants))
+    hist(log(CarData$Bicyclists))
+    hist(log(CarData$Multiple.vehicle))
+    hist(log(CarData$Unrestrained.fatally.injured.occupants)) #partly normal distributed-more right skewed
+    hist(log(CarData$Rural)) #partly normal distributed-more right skewed
+
+
+
+
+# 1.Iteration
+# VARIABLE TRANSFORMATION -- We applied log to the model.iteration
+model.iteration <- lm(Deaths.per.100.000.population~ log(Vehicle.miles.traveled..millions.) +  Pickup.and.SUV.occupants + Bicyclists + log(Multiple.vehicle) + log(Unrestrained.fatally.injured.occupants) + Rural,data = CarData)
+
+    summary(model.iteration)
+    plot(model.iteration)
+    AIC(model.iteration)
+
+# 2.Iteration
+# taking out the OUTLIARS which we saw in the Residuals vs Leverage plot
+CarData_Last <- CarData[-c(9,44),]
+
+model.iteration <- lm(Deaths.per.100.000.population~ log(Vehicle.miles.traveled..millions.) +  Pickup.and.SUV.occupants + Bicyclists + log(Multiple.vehicle) + log(Unrestrained.fatally.injured.occupants) + Rural,data = CarData_Last)
+
+    summary(model.iteration)
+
+# 3.Iteration
+model.iteration <- lm(Deaths.per.100.000.population~ log(Vehicle.miles.traveled..millions.) +  Pickup.and.SUV.occupants  + log(Multiple.vehicle) + log(Unrestrained.fatally.injured.occupants) + Rural,data = CarData_Last)
+
+    summary(model.iteration)
+
+# 4.Iteration
+model.iteration <- lm(Deaths.per.100.000.population~ log(Vehicle.miles.traveled..millions.) +  Pickup.and.SUV.occupants  + log(Multiple.vehicle) + log(Unrestrained.fatally.injured.occupants) ,data = CarData_Last)
+
+    summary(model.iteration)
+    plot(model.iteration)
+    AIC(model.iteration)
+
+
+
+
+# BEST FITTED MODEL
+
+# 5.Iteration
+# results: These results shows us new model is better. R squared is higher , Standart Error is lower and AIC is lower in final.model 
+final.model <- lm(Deaths.per.100.000.population~ log(Vehicle.miles.traveled..millions.) +   log(Multiple.vehicle) + log(Unrestrained.fatally.injured.occupants) ,data = CarData_Last)
+
+    summary(final.model)
+    plot(final.model)
+    AIC(final.model)
+
+# Adjusted R squared model.iteration: 0.79
+# Adjusted R squared final.model: 0.7911
+
+# Residual Standart Error model.iteration: 2.146
+# Residual Standart Error final.model: 2.14
+
+# AIC of model.iteration :220.6092  
+# AIC of final.model :219.461  
+
+  plot(log(CarData_Last$Vehicle.miles.traveled..millions.),final.model$residuals)
+  plot(log(CarData_Last$Multiple.vehicle) ,final.model$residuals)
+  plot(log(CarData_Last$Unrestrained.fatally.injured.occupants) ,final.model$residuals) 
+
+
+
+
+# ANOVA
+# apply ANOVA to find out the best model. 
+
+anova(model.iteration,final.model)
+
+
+# results: We compared model.iteration and final.model .P-value (0.3845) is higher than the alpha value (0.05) . Null hypothesiscan not be reject that means are the same. Two model are not significantly different than each other. It looks like Pickup.and.SUV.occupants doesn't make any difference in Death in 100000 popularity. We can choose final.model as the final model  
+# Deaths.per.100.000.population = 71.9254 - 10.8533 * log(Vehicle.miles.traveled..millions.) + 5.0865 * log(Multiple.vehicle) + 5.8360 * log(Unrestrained.fatally.injured.occupants)
+
+
+
+#-----------------------------------------------
+#-----------------------------------------------
+
+
+### i. Coefficients and model fit 
+
+# Coefficients
+final.model$coefficients 
+
+# model fit
+# Deaths.per.100.000.population = (12.0368007544) + (-0.0002413244)*Vehicle.miles.traveled..millions. + (0.0299810604)*Single.vehicle + (0.0093184288)*Rural
+
+
+
+### ii. Model Diagnostics
+plot(final.model)
+
+# Residuals vs Fitted graphic spreads randomly. It shows that the residuals are independent.
+# Normal QQ graphic spreads in a straight line. It shows that the residuals are normally distributed.
+# Standardized residuals graphic spreads randomly and have no visible pattern. It shows that the residuals are randomly scattered and have equal variance(homoscedasticity).
+# Residuals vs Leverage graphic has no variable above the 1 line (Cook Distance). There is no outliar anymore in the model.
+
+
+
+
+### iii. Outliers / Influential values
+
+# There was an outliar (9 and 44th value) in the first model and removed in the iterations for more stable regression model.There is no outliar in the final.model anymore .
+
+
+
+
+### iv. Possible Remedial Measures Section
+# There are non normal distributed valuables in the first model and we applied variable transformation (log function) in the  iterations .
+
+
+
+
